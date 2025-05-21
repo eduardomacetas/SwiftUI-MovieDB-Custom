@@ -39,16 +39,16 @@ struct Search: View {
                     MessageText(text: self.emptyResultsText!)
                 }
                 
-                }
-                
-                .navigationBarTitle(Text("Search"))
             }
-            .onDisappear(perform: {
-                self.movieSearchData.emptyResultQuery = nil
-                self.movieSearchData.movies = []
-                self.movieSearchData.isSearching = false
-            })
-            .tabItem({Text("Search")})
+            
+            .navigationBarTitle(Text("Search"))
+        }
+        .onDisappear(perform: {
+            self.movieSearchData.emptyResultQuery = nil
+            self.movieSearchData.movies = []
+            self.movieSearchData.isSearching = false
+        })
+        .tabItem({Text("Search")})
     }
 }
 
@@ -63,15 +63,23 @@ struct SearchList: View {
             List {
                 
                 
-                TextField("Search your favorite movie", text: $text, onEditingChanged: { _ -> Void in
-                    self.keyboardData.dismissKeyboard()
+                // TextField("Search your favorite movie", text: $text, onEditingChanged: { _ -> Void in
+                //     self.keyboardData.dismissKeyboard()
+                //     self.movieSearchData.searchMovies(query: self.text)
+                // }, onCommit: {})
+                // .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                //     .foregroundColor(.secondary)
+                //     .padding()
+                //     .listRowInsets(EdgeInsets())
+                
+                TextField("Search your favorite movie", text: $text, onCommit: {
                     self.movieSearchData.searchMovies(query: self.text)
-                }, onCommit: {})
+                })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-                    .foregroundColor(.secondary)
-                    .padding()
-                    .listRowInsets(EdgeInsets())
+                .foregroundColor(.secondary)
+                .padding()
+                .listRowInsets(EdgeInsets())
                 
                 
                 ForEach(movieSearchData.movies) { movie in

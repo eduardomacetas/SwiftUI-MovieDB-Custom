@@ -4,7 +4,8 @@ public class MovieStore: MovieService {
     
     public static let shared = MovieStore()
     private init() {}
-    private let apiKey = "APIKEY"
+    // private let apiKey = "APIKEY"
+    private let apiKey = "6c49e65076398ff0aeb2b935f7e947b9"
     private let baseAPIURL = "https://api.themoviedb.org/3"
     private let urlSession = URLSession.shared
     
@@ -60,7 +61,7 @@ public class MovieStore: MovieService {
             } catch {
                 self.handleError(errorHandler: errorHandler, error: MovieError.serializationError)
             }
-            }.resume()
+        }.resume()
         
     }
     
@@ -96,7 +97,7 @@ public class MovieStore: MovieService {
             } catch {
                 self.handleError(errorHandler: errorHandler, error: MovieError.serializationError)
             }
-            }.resume()
+        }.resume()
         
     }
     
@@ -148,7 +149,7 @@ public class MovieStore: MovieService {
             } catch {
                 self.handleError(errorHandler: errorHandler, error: MovieError.serializationError)
             }
-            }.resume()
+        }.resume()
         
     }
     

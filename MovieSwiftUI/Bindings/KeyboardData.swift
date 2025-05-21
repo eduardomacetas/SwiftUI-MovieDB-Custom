@@ -29,17 +29,22 @@ final class KeyboardData: ObservableObject {
     
     
     
-    @objc func keyboardShown(_ sender: Notification) {
+@objc func keyboardShown(_ sender: Notification) {
+    if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
 
-        if let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height
-            let window = UIApplication.shared.windows.first
-            let bottomPadding = (window?.safeAreaInsets.bottom ?? 0) * 2
-            self.height = keyboardHeight - bottomPadding
-        }
-        
+        // Obtén la primera ventana activa de la escena principal
+        let window = UIApplication.shared
+            .connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first { $0.isKeyWindow }
+
+        let bottomPadding = (window?.safeAreaInsets.bottom ?? 0) * 2
+        self.height = keyboardHeight - bottomPadding
     }
+}
     
     @objc func keyboardHidden(_ sender: Notification) {
         self.height = 0

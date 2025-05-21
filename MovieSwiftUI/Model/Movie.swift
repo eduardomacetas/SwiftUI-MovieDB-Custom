@@ -78,8 +78,13 @@ public struct Movie: Codable, Identifiable  {
         return formatter
     }()
     
-    public var posterURL: URL {
-        return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")!
+    // public var posterURL: URL {
+    //     return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")!
+    // }
+    
+    public var posterURL: URL? {
+        guard let path = posterPath else { return nil }
+        return URL(string: "https://image.tmdb.org/t/p/w500\(path)")
     }
     
     public var backdropURL: URL {
@@ -95,7 +100,7 @@ public struct Movie: Codable, Identifiable  {
             return nil
         }
         return movieGenres.map { $0.name }.joined(separator: ", ")
-    
+        
     }
     
     public var ratingText: String {
@@ -159,7 +164,7 @@ public struct MovieCreditResponse: Codable {
 public struct MovieCast: Codable {
     public let character: String
     public let name: String
-
+    
     public let profilePath: String?
     
     public var profileURL: URL? {
