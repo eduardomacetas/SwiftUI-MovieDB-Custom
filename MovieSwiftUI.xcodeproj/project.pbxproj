@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D162EB72DDEDE5900D416D0 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D162EB62DDEDE5900D416D0 /* Secrets.plist */; };
 		8B1E624222A8140C00093B49 /* MovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1E624122A8140C00093B49 /* MovieRow.swift */; };
 		8B21374C22A7ED9A00BAB22F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21374B22A7ED9A00BAB22F /* AppDelegate.swift */; };
 		8B21374E22A7ED9A00BAB22F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21374D22A7ED9A00BAB22F /* SceneDelegate.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D162EB62DDEDE5900D416D0 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		8B1E623E22A8102600093B49 /* MovieSwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MovieSwiftUI.entitlements; sourceTree = "<group>"; };
 		8B1E624122A8140C00093B49 /* MovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRow.swift; sourceTree = "<group>"; };
 		8B21374822A7ED9A00BAB22F /* MovieSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 		8B3B17CC22AA8E0200C394F4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3D162EB62DDEDE5900D416D0 /* Secrets.plist */,
 				8B21374B22A7ED9A00BAB22F /* AppDelegate.swift */,
 				8B21374D22A7ED9A00BAB22F /* SceneDelegate.swift */,
 				8B21375122A7ED9B00BAB22F /* Assets.xcassets */,
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B21375822A7ED9B00BAB22F /* LaunchScreen.storyboard in Resources */,
+				3D162EB72DDEDE5900D416D0 /* Secrets.plist in Resources */,
 				8B21375522A7ED9B00BAB22F /* Preview Assets.xcassets in Resources */,
 				8B21375222A7ED9B00BAB22F /* Assets.xcassets in Resources */,
 			);
